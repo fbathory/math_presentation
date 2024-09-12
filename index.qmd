@@ -63,7 +63,7 @@ Let's use a population of 100 rabbits as an example and their rate of growth is 
 :::
 
 ::: {.fragment .fade-in}
-So $P(t_0) = 1000$
+So $P(t_0) = 100$, $r=.1$ and $P(0)=0$
 :::
 
 

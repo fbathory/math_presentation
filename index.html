@@ -402,7 +402,7 @@ Fabio Pastor Duarte
 </div>
 </div>
 <div class="fragment fade-in">
-<p>So <span class="math inline">\(P(t_0) = 1000\)</span></p>
+<p>So <span class="math inline">\(P(t_0) = 100\)</span>, <span class="math inline">\(r=.1\)</span> and <span class="math inline">\(P(0)=0\)</span></p>
 </div>
 </section>
 <section id="linear-growth" class="slide level2">
@@ -413,19 +413,13 @@ Fabio Pastor Duarte
 P(t)=100+1.1*(t-t_0)
 \]</span> Then, we get a plot that looks like this</li>
 </ul>
-
-<img data-src="index_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
+</section>
 <section id="exponential-growth" class="slide level2">
 <h2>Exponential growth</h2>
 <ul>
 <li>We assume population increases without limitations along time</li>
 <li>J-shaped curve (as the <span class="math inline">\((x)\)</span> function)</li>
 </ul>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 92709069</code></pre>
-</div>
-</div>
 </section>
 <section id="logistic-growth" class="slide level2">
 <h2>Logistic growth</h2>
@@ -913,7 +907,7 @@ P(t)=100+1.1*(t-t_0)
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","descPosition":"bottom"});
+    <script>var lightboxQuarto = GLightbox({"loop":false,"openEffect":"zoom","descPosition":"bottom","selector":".lightbox","closeEffect":"zoom"});
     window.onload = () => {
       lightboxQuarto.on('slide_before_load', (data) => {
         const { slideIndex, slideNode, slideConfig, player, trigger } = data;
