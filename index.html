@@ -407,12 +407,11 @@ Fabio Pastor Duarte
 </section>
 <section id="linear-growth" class="slide level2">
 <h2>Linear growth</h2>
-<ul>
-<li>Let’s say the population of rabbits grows linearly</li>
-<li>That means that in a linear expression <span class="math inline">\(y = a+b*x\)</span> we can describe as <span class="math inline">\(P(t)=P(t_0)+r*(t-t_0)\)</span> So, what do we know so far? <span class="math display">\[
+<div>
+<p>Let’s say the population of rabbits grows linearly That means that in a linear expression <span class="math inline">\(y = a+b*x\)</span> we can describe as <span class="math inline">\(P(t)=P(t_0)+r*(t-t_0)\)</span> So, what do we know so far? <span class="math display">\[
 P(t)=100+1.1*(t-t_0)
-\]</span> Then, we get a plot that looks like this</li>
-</ul>
+\]</span> Then, we get a plot that looks like this</p>
+</div>
 </section>
 <section id="exponential-growth" class="slide level2">
 <h2>Exponential growth</h2>
@@ -907,7 +906,7 @@ P(t)=100+1.1*(t-t_0)
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"loop":false,"openEffect":"zoom","descPosition":"bottom","selector":".lightbox","closeEffect":"zoom"});
+    <script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","loop":false});
     window.onload = () => {
       lightboxQuarto.on('slide_before_load', (data) => {
         const { slideIndex, slideNode, slideConfig, player, trigger } = data;
