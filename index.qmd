@@ -152,6 +152,8 @@ logistic_g <- function(t,r,a=2000){
   pt <- numerator/denominator
   return(pt)
 }
+t_prev <- data.frame(t=c(1890,1900,1910,1920))
+t <- bind_rows(t_prev,t)
 
 t_logistic <- t |> 
   mutate(P=round(logistic_g(t=t, r=.1),0))
@@ -159,9 +161,12 @@ t_logistic <- t |>
 p_logistic <- ggplot(data = t_logistic, 
        aes(x=t, y=P))+
   geom_line()+
+  geom_vline(xintercept=t0, linetype = "dashed")+
   theme_bw()+
   labs(x = "t",
-       y = "P(t)")
+       y = "P(t)")+
+  scale_x_continuous(breaks=c(seq(1900, 2020, 10)),
+                     labels=c(seq(1900, 1940, 10), '1950'=paste0('t0'), seq(1960, 2020, 10)))
 
 p_logistic
 ```
