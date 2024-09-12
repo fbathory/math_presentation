@@ -46,39 +46,90 @@ format:
 We are going to go through some basic models for population growth, in which age and most other features of real populations are disregarded
 
 ::: {.fragment .fade-in}
-A population count at time $t$ is denoted by $P_t$
+A population count at time $t$ is denoted by $P_t$ when we use discrete values, or $P(t)$ over a continuum of time
+:::
+
+
+::: {.fragment .fade-in}
+
+::: {.column-width="60%"}
+Let's use a population of 100 rabbits as an example and their rate of growth is 10% per year
+:::
+
+:::{.column-width="40%"}
+![](images/rabbits.jpg){.lightbox fig-align="center" width="50%"}
+:::
+
 :::
 
 ::: {.fragment .fade-in}
-1
+So $P(t_0) = 1000$
 :::
 
-::: {.fragment .fade-in}
-2
-:::
-
-::: {.fragment .fade-in}
-3
-:::
-
-::: {.fragment .fade-in}
-4
-:::
 
 ## Linear growth
+- Let's say the population of rabbits grows  linearly
+- That means that in a linear expression $y = a+b*x$ we can describe as $P(t)=P(t_0)+r*(t-t_0)$
+So, what do we know so far?
+$$
+P(t)=100+1.1*(t-t_0)
+$$
+Then, we get a plot that looks like this
+```{r}
+library(tidyverse)
+library(ggplot2)
+t <- data.frame(t= c(0,1,2,3,4,5,10,20,50,100))
+p0 <- 4
+
+linear_g <- function(t,r){
+  a <- p0
+  result <- a+(r+1)*t
+  return(result)
+}
+
+t_linear <- t |> 
+  mutate(P = linear_g(t=t, r=1.1))
+
+p_linear <- ggplot(data = t_linear, 
+       aes(x=t, y=P))+
+  geom_line()
+```
 
 ## Exponential growth
+- We assume population increases without limitations along time
+- J-shaped curve (as the $(x)$ function)
+```{r}
+
+exponential_g <- function(t,r){
+  p0 <- 100
+  r <- 1+r
+  result <- p0*r^t
+  return(result)
+}
+
+t_exponential <- t |> 
+  mutate(P=exponential_g(t=t, r=.1))
+
+
+```
 
 ## Logistic growth
+- We put a limit to the logistic growth because environmental, resources and predators could constrinct that growth
+```{r}
+logistic_g <- function(t,r,a){
+  numerator <- a
+  denominator <- 1+exp((-r)*(t))
+}
+```
 
 ## Comparison on the long-term
 
 # Thank you! {style="text-align: center"}
 
--   📧 [bathory\@demogr.mpg.de](mailto:bathory@demogr.mpg.de)
+-   📧 [bathory@demogr.mpg.de](mailto:bathory@demogr.mpg.de)
 
--   📧 [bodo\@demogr.mpg.de](mailto:bodo@demogr.mpg.de)
+-   📧 [bodo@demogr.mpg.de](mailto:bodo@demogr.mpg.de)
 
--   📧 [hossain\@demogr.mpg.de](mailto:hossain@demogr.mpg.de)
+-   📧 [hossain@demogr.mpg.de](mailto:hossain@demogr.mpg.de)
 
--   📧 [pastorduarte\@demogr.mpg.de](mailto:pastorduarte)
+-   📧 [pastorduarte@demogr.mpg.de](mailto:pastorduarte)
