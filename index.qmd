@@ -1,0 +1,80 @@
+---
+title: "Models for population growth"
+author: 
+  - name: "Florencia Bathory" 
+    email: bathory@demogr.mpg.de
+  - name: "Martina Bodo"
+    email: bodo@demogr.mpg.de
+  - name: "Anwer Hossain"
+    email: hossain@demogr.mpg.de
+  - name: "Fabio Pastor Duarte"
+    email: pastorduarte@demogr.mpg.de
+#institute: "Universidad Nacional de Luján"
+lang: en
+date: "17/08/2024"
+date-format: "DD MMMM YYYY"
+format:
+  revealjs: 
+    touch: false
+    preview-links: true
+    controls: true
+    theme: [white, custom.scss]
+    smaller: true
+    #theme: moon
+    self-contained: false
+    slide-number: c/t
+    logo: images/edsd-logo.png
+    css: logo.css
+    # footer: "[https://fbathory.github.io/tesis-mg](https://fbathory.github.io/tesis-mg)"
+# suppress-bibliography: true
+---
+
+## Contents
+
+-   Population modeling: basic concepts
+
+-   Population models: linear growth
+
+-   Population models: exponential growth
+
+-   Population models: logistic growth
+
+## Basic concepts
+
+We are going to go through some basic models for population growth, in which age and most other features of real populations are disregarded
+
+::: {.fragment .fade-in}
+A population count at time $t$ is denoted by $P(t)$
+:::
+
+::: {.fragment .fade-in}
+1
+:::
+
+::: {.fragment .fade-in}
+2
+:::
+
+::: {.fragment .fade-in}
+3
+:::
+
+::: {.fragment .fade-in}
+4
+:::
+
+## Linear growth
+
+## Exponential growth
+
+## Logistic growth
+
+# Thank you! {style="text-align: center"}
+
+-   📧 [bathory\@demogr.mpg.de](mailto:bathory@demogr.mpg.de)
+
+-   📧 [bodo\@demogr.mpg.de](mailto:bodo@demogr.mpg.de)
+
+-   📧 [hossain\@demogr.mpg.de](mailto:hossain@demogr.mpg.de)
+
+-   📧 [pastorduarte\@demogr.mpg.de](mailto:pastorduarte)
