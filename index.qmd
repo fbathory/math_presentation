@@ -39,12 +39,14 @@ format:
 
 -   Population models: logistic growth
 
+-   Comparison on the long-term
+
 ## Basic concepts
 
 We are going to go through some basic models for population growth, in which age and most other features of real populations are disregarded
 
 ::: {.fragment .fade-in}
-A population count at time $t$ is denoted by $P(t)$
+A population count at time $t$ is denoted by $P_t$
 :::
 
 ::: {.fragment .fade-in}
@@ -68,6 +70,8 @@ A population count at time $t$ is denoted by $P(t)$
 ## Exponential growth
 
 ## Logistic growth
+
+## Comparison on the long-term
 
 # Thank you! {style="text-align: center"}
 
