@@ -49,89 +49,132 @@ We are going to go through some basic models for population growth, in which age
 A population count at time $t$ is denoted by $P_t$ when we use discrete values, or $P(t)$ over a continuum of time
 :::
 
-
 ::: {.fragment .fade-in}
 
-::: {.column-width="60%"}
-Let's use a population of 100 rabbits as an example and their rate of growth is 10% per year
-:::
+Let's use a population of 4 rabbits as an example and their rate of growth is 10% per year
 
-:::{.column-width="40%"}
-![](images/rabbits.jpg){.lightbox fig-align="center" width="50%"}
-:::
+![](images/rabbits2.jpg){.lightbox fig-align="center" width="50%"}
 
 :::
 
 ::: {.fragment .fade-in}
-So $P(t_0) = 100$, $r=.1$ and $P(0)=0$
-:::
+So we have 4 rabbits (us in our previous lives), and let's say $t_0=1950$ and $r=.1$
 
+:::
 
 ## Linear growth
-::: incremental
-Let's say the population of rabbits grows  linearly
-That means that in a linear expression $y = a+b*x$ we can describe as $P(t)=P(t_0)+r*(t-t_0)$
-So, what do we know so far?
+
+::: columns
+::: {column-width="40%"}
+Let's say the population of rabbits grows linearly. That means that in a linear expression $y = a+b*x$ we can describe as $P(t)=P(t_0)+r*(t-t_0)$ 
+So, what do we know so far? 
 $$
-P(t)=100+1.1*(t-t_0)
-$$
-Then, we get a plot that looks like this
+P(t)=4+0.1*(t-1950)
+$$ Then, we get a plot that looks like this
+:::
+
+::: {.column-width="60%}
 ```{r}
 library(tidyverse)
 library(ggplot2)
-t <- data.frame(t= c(0,1,2,3,4,5,10,20,50,100))
+t <- data.frame(t= c(1950,1960,1970,1980,1990,2000,2010,2020))
 p0 <- 4
+t0 <- 1950
 
 linear_g <- function(t,r){
   a <- p0
-  result <- a+(r+1)*t
+  result <- a+r*(t-1950)
   return(result)
 }
 
 t_linear <- t |> 
-  mutate(P = linear_g(t=t, r=1.1))
+  mutate(P = round(linear_g(t=t, r=.1),0))
 
 p_linear <- ggplot(data = t_linear, 
        aes(x=t, y=P))+
-  geom_line()
+  geom_line()+
+  theme_bw()+
+  labs(x = "t",
+       y = "P(t)")
+
+p_linear
 ```
 :::
 
+:::
+
 ## Exponential growth
-- We assume population increases without limitations along time
-- J-shaped curve (as the $(x)$ function)
+
+::: incremental
+But we know populations don't usually grow in a linear way, but mostly reflects geometric growth if $P(t)=P(0)*(1+x)^r$ being $x$ ????, which, as we've seen, when $x$ is compounded $j$ times per year and the rate is compounded continuously, we get $lim_{j\to\infty} (1+\frac{r}{j})^r=e^r$.
+If we assume population increases without limitations along time, we get the model of exponential growth
+$$
+P(t)=P(0)*e^{r(t-t_0)}
+$$
+If we derive????? this function, we get that the differential equation get us $r$????
+Which is a J-shaped curve (as the $\mu(x)$ function)
+
 ```{r}
 
 exponential_g <- function(t,r){
-  p0 <- 100
-  r <- 1+r
-  result <- p0*r^t
+  result <- p0*exp(r*(t-t0))
   return(result)
 }
 
 t_exponential <- t |> 
-  mutate(P=exponential_g(t=t, r=.1))
+  mutate(P=round(exponential_g(t=t, r=.1),0))
 
+p_exponential <- ggplot(data = t_exponential, 
+       aes(x=t, y=P))+
+  geom_line()+
+  theme_bw()+
+  labs(x = "t",
+       y = "P(t)")
 
+p_exponential
 ```
+:::
 
 ## Logistic growth
-- We put a limit to the logistic growth because environmental, resources and predators could constrinct that growth
+
+::: incremental 
+But unlimited growth can only happen for a limited amount of time.
+We then put a limit to the logistic growth because environmental, resources and predators could constrict that growth. For that, we have to assume an ultimate population so that $lim_{t\to\infty} P(t)=a$
+The solution for the differential equation, then, is
+$$
+P(t)=\frac{a}{(1+e^{-r(t-t_0)})}
+$$
+
 ```{r}
-logistic_g <- function(t,r,a){
+logistic_g <- function(t,r,a=2000){
   numerator <- a
-  denominator <- 1+exp((-r)*(t))
+  denominator <- 1+exp((-r)*(t-t0))
+  pt <- numerator/denominator
+  return(pt)
 }
+
+t_logistic <- t |> 
+  mutate(P=round(logistic_g(t=t, r=.1),0))
+
+p_logistic <- ggplot(data = t_logistic, 
+       aes(x=t, y=P))+
+  geom_line()+
+  theme_bw()+
+  labs(x = "t",
+       y = "P(t)")
+
+p_logistic
 ```
 
+:::
 ## Comparison on the long-term
 
 # Thank you! {style="text-align: center"}
 
--   📧 [bathory@demogr.mpg.de](mailto:bathory@demogr.mpg.de)
+-   📧 [bathory\@demogr.mpg.de](mailto:bathory@demogr.mpg.de)
 
--   📧 [bodo@demogr.mpg.de](mailto:bodo@demogr.mpg.de)
+-   📧 [bodo\@demogr.mpg.de](mailto:bodo@demogr.mpg.de)
 
--   📧 [hossain@demogr.mpg.de](mailto:hossain@demogr.mpg.de)
+-   📧 [hossain\@demogr.mpg.de](mailto:hossain@demogr.mpg.de)
 
--   📧 [pastorduarte@demogr.mpg.de](mailto:pastorduarte)
+-   📧 [pastorduarte\@demogr.mpg.de](mailto:pastorduarte)
