@@ -9,7 +9,6 @@ author:
     email: hossain@demogr.mpg.de
   - name: "Fabio Pastor Duarte"
     email: pastorduarte@demogr.mpg.de
-#institute: "Universidad Nacional de Luján"
 lang: en
 date: "17/08/2024"
 date-format: "DD MMMM YYYY"
