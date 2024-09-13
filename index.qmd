@@ -13,6 +13,7 @@ author:
 lang: en
 date: "17/08/2024"
 date-format: "DD MMMM YYYY"
+lightbox: true
 format:
   revealjs: 
     touch: false
@@ -46,7 +47,7 @@ format:
 We are going to go through some basic models for population growth, in which age and most other features of real populations are disregarded
 
 ::: {.fragment .fade-in}
-A population count at time $t$ is denoted by $P_t$ when we use discrete values, or $P(t)$ over a continuum of time
+A population count at time $t$ is denoted by $P_t$ when we use discrete values, or $P(t)$ over a continuum of time.
 :::
 
 ::: {.fragment .fade-in}
