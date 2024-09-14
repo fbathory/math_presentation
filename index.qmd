@@ -1,5 +1,6 @@
 ---
 title: "Models for population growth"
+lightbox: true
 author: 
   - name: "Florencia Bathory" 
     email: bathory@demogr.mpg.de
@@ -12,7 +13,6 @@ author:
 lang: en
 date: "09/17/2024"
 date-format: "DD MMMM YYYY"
-lightbox: true
 format:
   revealjs: 
     touch: false
@@ -57,15 +57,16 @@ Let's start with a population of 4 rabbits in $t_   0=1950$.
 
 ## Linear growth
 
-::: columns
+::: {columns}
 ::: {.column width="40%"}
 We assume:
 
 -   Population increases without limitations (resources, space, competition, environmental resistance) along time
 
--   The rate is constant, meaning every year, the population increases 10 individuals per unit of time $$
-    P(t)=4+10*(t-1950)
-    $$ Then, we get a plot that looks like this
+-   The rate is constant, meaning every year, the population increases 10 individuals per unit of time 
+$$
+P(t)=4+10*(t-1950)
+$$ 
 :::
 
 ::: {.column width="\"60%"}
@@ -73,6 +74,7 @@ We assume:
 library(tidyverse)
 library(ggplot2)
 library(knitr)
+library(kableExtra)
 t <- data.frame(t= c(seq(1950,2100,10)))
 p0 <- 4
 t0 <- 1950
@@ -97,13 +99,20 @@ p_linear
 ```
 
 ```{r}
-kable(t_linear)
+t_linear |>
+  filter(t %in% c(1950,2020,2100)) |> 
+  kbl() |> 
+  kable_classic_2(full_width = F, html_font = "Verdana") |> 
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
 ```
 :::
 :::
 
 ## Exponential growth
 
+:::: {.columns}
+
+::: {.column width="50%"}
 We assume:
 
 -    population increases without limitations (resources, space, competition, environmental resistance) along time
@@ -113,6 +122,10 @@ We assume:
 $$
 P(t)=P(0)*e^{r(t-t_0)}
 $$ If we derive this function, we get that the differential equation we get $P'(t)=P(0)*e^{rt}=r*P(t)$. This is important for the next model. <!-- Which is a J-shaped curve (as the $\mu(x)$ function) -->
+
+:::
+
+::: {.column width="50%"}
 
 ```{r}
 
@@ -136,24 +149,27 @@ p_exponential
 ```
 
 ```{r}
-kable(t_exponential)
+t_exponential |> 
+  filter(t %in% c(1950,2020,2100)) |> 
+  mutate(P_exp = round(P_exp,0)) |> 
+  kbl() |> 
+  kable_classic_2(full_width = F, html_font = "Verdana") |> 
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
 ```
 
-## Logistic growth
+:::
 
+::::
+
+## Logistic growth {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
 We assume:
 
--    Resources are limited or there are environmental constrictions that prevent population growing indefinitely
-
--   Population growth is initially exponential but then stabilizes and $r$ will tend to $0$.
-
--   There is an ultimate population so that $lim_{t\to\infty} P(t)=a$ where $a$ is the "carrying capacity" If we allow the previous derivative to "slow down" in its growth, we get $$
-    P'(t)=r*P(t)[1-\frac{P(t)}{a}]
-    $$So the logistic model (which we will learn how to get from the previous function in the future -hopefully-) is the following
-
-$$
-P(t)=\frac{a}{(1+e^{-r(t-t_0)})}
-$$ So assuming $a=150$
+-   There are constrictions preventing population growing indefinitely
+-   Initially, population grows exponentially but then stabilizes and $r$ will tend to $0$.
+-   There is an ultimate population so that $lim_{t\to\infty} P(t)=a$ where $a$ is the "carrying capacity". 
 
 ```{r}
 logistic_g <- function(t,r,a=150){
@@ -178,36 +194,65 @@ p_logistic <- ggplot(data = t_logistic,
 p_logistic
 ```
 
-## Comparison on the long-term
+:::
 
-::: columns
 ::: {.column width="40%"}
+
+If we allow the previous derivative to "slow down" in its growth, we get $P'(t)=r*P(t)[1-\frac{P(t)}{a}]$
+
+And we get the logistic model
+
+$$
+P(t)=\frac{a}{(1+e^{-r(t-t_0)})}
+$$ So assuming $a=150$
+
+
+```{r}
+t_logistic |> 
+  filter(t %in% c(1950,2020,2100)) |> 
+  kbl() |> 
+  kable_classic_2(full_width = F, html_font = "Verdana") |> 
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+```
+
+:::
+
+::::
+## Comparison on the long-term {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
 -   *Linear model*: The population grows steadily by 10 bunnies a year in 2100 there are 154 bunnies.
 -   *Exponential model*: The population doubles every 14 year approximately, leading to an explosive increase over time.
 -   *Logistic model*: The population grows rapidly at first but the slows down as it approaches the carrying capacity.
-:::
 
-::: {.column width="60%"}
 ```{r}
 table <- left_join(t_linear,t_exponential, by = "t") %>% 
           left_join(t_logistic, by = "t") %>% 
 mutate(across(P_lin:P_log, ~round(.,0)))
 
 ggplot()+
-geom_line(data=t_linear, mapping=aes(x = t, y=P_lin), color="green", text="linear")+
-geom_line(data=t_exponential, mapping=aes(x = t, y=P_exp), color="blue", text="exponential")+
-geom_line(data=t_logistic, mapping=aes(x = t, y=P_log), color="red", text="logistic")+
+geom_line(data=t_linear, mapping=aes(x = t, y=P_lin), color="green", text="linear",linewidth = 1.5)+
+geom_line(data=t_exponential, mapping=aes(x = t, y=P_exp), color="blue", text="exponential",linewidth = 1.5)+
+geom_line(data=t_logistic, mapping=aes(x = t, y=P_log), color="red", text="logistic",linewidth = 1.5)+
 theme_bw()+
 scale_x_continuous(limits=c(1950,2070))+
 scale_y_continuous(limits=c(0,1000))+
 labs(y="P(t)")
 ```
+:::
+
+::: {.column width="50%"}
 
 ```{r}
-kable(table)
+table |> 
+  kbl() |> 
+  kable_classic_2(full_width = F, html_font = "Verdana") |> 
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), font_size = 20)
 ```
 :::
-:::
+::::
 
 # Thank you! {style="text-align: center"}
 
