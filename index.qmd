@@ -210,6 +210,7 @@ $$ So assuming $a=150$
 ```{r}
 t_logistic |> 
   filter(t %in% c(1950,2020,2100)) |> 
+  mutate(P_log = round(P_log,0)) |> 
   kbl() |> 
   kable_classic_2(full_width = F, html_font = "Verdana") |> 
   kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
@@ -233,9 +234,9 @@ table <- left_join(t_linear,t_exponential, by = "t") %>%
 mutate(across(P_lin:P_log, ~round(.,0)))
 
 ggplot()+
-geom_line(data=t_linear, mapping=aes(x = t, y=P_lin), color="green", text="linear",linewidth = 1.5)+
-geom_line(data=t_exponential, mapping=aes(x = t, y=P_exp), color="blue", text="exponential",linewidth = 1.5)+
-geom_line(data=t_logistic, mapping=aes(x = t, y=P_log), color="red", text="logistic",linewidth = 1.5)+
+  geom_line(data=t_linear, mapping=aes(x = t, y=P_lin, label="Linear"), color="green",linewidth = 1.5)+
+geom_line(data=t_exponential, mapping=aes(x = t, y=P_exp, label="Exponential"), color="blue",linewidth = 1.5)+
+geom_line(data=t_logistic, mapping=aes(x = t, y=P_log, label="Logistic"), color="red",linewidth = 1.5)+
 theme_bw()+
 scale_x_continuous(limits=c(1950,2070))+
 scale_y_continuous(limits=c(0,1000))+
