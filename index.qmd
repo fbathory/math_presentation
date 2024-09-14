@@ -121,7 +121,7 @@ We assume:
 
 $$
 P(t)=P(0)*e^{r(t-t_0)}
-$$ If we derive this function, we get that the differential equation we get $P'(t)=P(0)*e^{rt}=r*P(t)$. This is important for the next model. <!-- Which is a J-shaped curve (as the $\mu(x)$ function) -->
+$$ If we derive this function, we get that the differential equation we get $P'(t)=P(0)*e^{r(t-t_0)}=r*P(t)$. This is important for the next model. <!-- Which is a J-shaped curve (as the $\mu(x)$ function) -->
 
 :::
 
