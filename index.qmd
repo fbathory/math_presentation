@@ -115,13 +115,15 @@ t_linear |>
 ::: {.column width="50%"}
 We assume:
 
--    population increases without limitations (resources, space, competition, environmental resistance) along time
+-    Population increases without limitations (resources, space, competition, environmental resistance) along time
 
 -   The rate is proportional to the current size at $t$ (meaning larger populations grow faster)
 
 $$
 P(t)=P(0)*e^{r(t-t_0)}
-$$ If we derive this function, we get that the differential equation we get $P'(t)=P(0)*r*e^{r(t-t_0)}=r*P(t)$. This is important for the next model. <!-- Which is a J-shaped curve (as the $\mu(x)$ function) -->
+$$ 
+
+If we derive this function, we get that the differential equation is $P'(t)=P(0)*r*e^{r(t-t_0)}=r*P(t)$. This is important for the next model. <!-- Which is a J-shaped curve (as the $\mu(x)$ function) -->
 
 :::
 
