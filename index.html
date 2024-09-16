@@ -394,7 +394,7 @@ Fabio Pastor Duarte
 <p>A population count at time <span class="math inline">\(t\)</span> is denoted by <span class="math inline">\(P(t)\)</span> over a continuum of time.</p>
 </div>
 <div class="fragment fade-in">
-<p>Let’s start with a population of 4 rabbits in <span class="math inline">\(t_   0=1950\)</span>.</p>
+<p>Let’s start with a population of 4 rabbits in <span class="math inline">\(t_0=1950\)</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><a href="images/rabbits2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="images/rabbits2.jpg" class="quarto-figure quarto-figure-center" style="width:50.0%"></a></p>
@@ -1178,7 +1178,7 @@ P(t)=\frac{a}{(1+e^{-r(t-t_0)})}
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"loop":false,"openEffect":"zoom","descPosition":"bottom","selector":".lightbox","closeEffect":"zoom"});
+    <script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom","loop":false});
     window.onload = () => {
       lightboxQuarto.on('slide_before_load', (data) => {
         const { slideIndex, slideNode, slideConfig, player, trigger } = data;

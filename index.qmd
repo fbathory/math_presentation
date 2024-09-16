@@ -50,7 +50,7 @@ A population count at time $t$ is denoted by $P(t)$ over a continuum of time.
 :::
 
 ::: {.fragment .fade-in}
-Let's start with a population of 4 rabbits in $t_   0=1950$.
+Let's start with a population of 4 rabbits in $t_0=1950$.
 
 ![](images/rabbits2.jpg){.lightbox fig-align="center" width="50%"}
 :::
