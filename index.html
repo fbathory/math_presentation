@@ -391,7 +391,7 @@ Fabio Pastor Duarte
 <h2>Basic concepts</h2>
 <p>We are going to go through some basic models for population growth, in which age and most other features of real populations are disregarded. Other features ignored by these models are migration and changes in birth and death rates</p>
 <div class="fragment fade-in">
-<p>A population count at time <span class="math inline">\(t\)</span> is denoted by <span class="math inline">\(P_t\)</span> when we use discrete values, or <span class="math inline">\(P(t)\)</span> over a continuum of time.</p>
+<p>A population count at time <span class="math inline">\(t\)</span> is denoted by <span class="math inline">\(P(t)\)</span> over a continuum of time.</p>
 </div>
 <div class="fragment fade-in">
 <p>Let’s start with a population of 4 rabbits in <span class="math inline">\(t_   0=1950\)</span>.</p>
@@ -1178,7 +1178,7 @@ P(t)=\frac{a}{(1+e^{-r(t-t_0)})}
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom"});
+    <script>var lightboxQuarto = GLightbox({"loop":false,"openEffect":"zoom","descPosition":"bottom","selector":".lightbox","closeEffect":"zoom"});
     window.onload = () => {
       lightboxQuarto.on('slide_before_load', (data) => {
         const { slideIndex, slideNode, slideConfig, player, trigger } = data;
