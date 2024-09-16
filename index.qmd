@@ -121,7 +121,7 @@ We assume:
 
 $$
 P(t)=P(0)*e^{r(t-t_0)}
-$$ If we derive this function, we get that the differential equation we get $P'(t)=P(0)*e^{r(t-t_0)}=r*P(t)$. This is important for the next model. <!-- Which is a J-shaped curve (as the $\mu(x)$ function) -->
+$$ If we derive this function, we get that the differential equation we get $P'(t)=P(0)*r*e^{r(t-t_0)}=r*P(t)$. This is important for the next model. <!-- Which is a J-shaped curve (as the $\mu(x)$ function) -->
 
 :::
 
@@ -224,9 +224,9 @@ t_logistic |>
 :::: {.columns}
 
 ::: {.column width="50%"}
--   *Linear model*: The population grows steadily by 10 bunnies a year in 2100 there are 154 bunnies.
--   *Exponential model*: The population doubles every 14 year approximately, leading to an explosive increase over time.
--   *Logistic model*: The population grows rapidly at first but the slows down as it approaches the carrying capacity.
+-   *Linear model* (green): The population grows steadily by 10 rabbits a year. In 2100 there are 154 bunnies.
+-   *Exponential model* (blue): The population doubles every 14 years approximately, leading to an explosive increase over time.
+-   *Logistic model* (red): The population grows rapidly at first but it slows down as it approaches the carrying capacity.
 
 ```{r}
 table <- left_join(t_linear,t_exponential, by = "t") %>% 

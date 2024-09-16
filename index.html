@@ -466,7 +466,7 @@ P(t)=4+10*(t-1950)
 </ul>
 <p><span class="math display">\[
 P(t)=P(0)*e^{r(t-t_0)}
-\]</span> If we derive this function, we get that the differential equation we get <span class="math inline">\(P'(t)=P(0)*e^{r(t-t_0)}=r*P(t)\)</span>. This is important for the next model. <!-- Which is a J-shaped curve (as the $\mu(x)$ function) --></p>
+\]</span> If we derive this function, we get that the differential equation we get <span class="math inline">\(P'(t)=P(0)*r*e^{r(t-t_0)}=r*P(t)\)</span>. This is important for the next model. <!-- Which is a J-shaped curve (as the $\mu(x)$ function) --></p>
 </div><div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
@@ -569,9 +569,9 @@ P(t)=\frac{a}{(1+e^{-r(t-t_0)})}
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
-<li><em>Linear model</em>: The population grows steadily by 10 bunnies a year in 2100 there are 154 bunnies.</li>
-<li><em>Exponential model</em>: The population doubles every 14 year approximately, leading to an explosive increase over time.</li>
-<li><em>Logistic model</em>: The population grows rapidly at first but the slows down as it approaches the carrying capacity.</li>
+<li><em>Linear model</em> (green): The population grows steadily by 10 rabbits a year. In 2100 there are 154 bunnies.</li>
+<li><em>Exponential model</em> (blue): The population doubles every 14 years approximately, leading to an explosive increase over time.</li>
+<li><em>Logistic model</em> (red): The population grows rapidly at first but it slows down as it approaches the carrying capacity.</li>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
@@ -1177,7 +1177,7 @@ P(t)=\frac{a}{(1+e^{-r(t-t_0)})}
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom"});
+    <script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom"});
     window.onload = () => {
       lightboxQuarto.on('slide_before_load', (data) => {
         const { slideIndex, slideNode, slideConfig, player, trigger } = data;
