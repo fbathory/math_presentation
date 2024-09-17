@@ -228,7 +228,7 @@ t_logistic |>
 :::: {.columns}
 
 ::: {.column width="50%"}
--   *Linear model* (green): The population grows steadily by 10 rabbits a year. In 2100 there are 154 bunnies.
+-   *Linear model* (green): The population grows steadily by 1 rabbit a year. In 2100 there are 154 bunnies.
 -   *Exponential model* (blue): The population doubles every 14 years approximately, leading to an explosive increase over time.
 -   *Logistic model* (red): The population grows rapidly at first but it slows down as it approaches the carrying capacity.
 
