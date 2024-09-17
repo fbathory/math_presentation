@@ -63,9 +63,9 @@ We assume:
 
 -   Population increases without limitations (resources, space, competition, environmental resistance) along time
 
--   The rate is constant, meaning every year, the population increases 10 individuals per unit of time 
+-   The rate is constant, meaning every year, the population increases 1 individual per unit of time 
 $$
-P(t)=4+10*(t-1950)
+P(t)=4+1*(t-1950)
 $$ 
 :::
 
@@ -128,7 +128,7 @@ If we derive this function, we get that the differential equation is $P'(t)=P(0)
 :::
 
 ::: {.column width="50%"}
-
+With $r=0.05$
 ```{r}
 
 exponential_g <- function(t,r){
@@ -206,7 +206,9 @@ And we get the logistic model
 
 $$
 P(t)=\frac{a}{(1+e^{-r(t-t_0)})}
-$$ So assuming $a=150$
+$$ 
+
+So assuming $a=150$ and $r=0.05$
 
 
 ```{r}
@@ -240,7 +242,7 @@ ggplot()+
 geom_line(data=t_exponential, mapping=aes(x = t, y=P_exp, label="Exponential"), color="blue",linewidth = 1.5)+
 geom_line(data=t_logistic, mapping=aes(x = t, y=P_log, label="Logistic"), color="red",linewidth = 1.5)+
 theme_bw()+
-scale_x_continuous(limits=c(1950,2070))+
+scale_x_continuous(limits=c(1950,2100))+
 scale_y_continuous(limits=c(0,1000))+
 labs(y="P(t)")
 ```

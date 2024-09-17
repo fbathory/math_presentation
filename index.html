@@ -409,8 +409,8 @@ Fabio Pastor Duarte
 <p>We assume:</p>
 <ul>
 <li><p>Population increases without limitations (resources, space, competition, environmental resistance) along time</p></li>
-<li><p>The rate is constant, meaning every year, the population increases 10 individuals per unit of time <span class="math display">\[
-P(t)=4+10*(t-1950)
+<li><p>The rate is constant, meaning every year, the population increases 1 individual per unit of time <span class="math display">\[
+P(t)=4+1*(t-1950)
 \]</span></p></li>
 </ul>
 </div>
@@ -469,6 +469,7 @@ P(t)=P(0)*e^{r(t-t_0)}
 \]</span></p>
 <p>If we derive this function, we get that the differential equation is <span class="math inline">\(P'(t)=P(0)*r*e^{r(t-t_0)}=r*P(t)\)</span>. This is important for the next model. <!-- Which is a J-shaped curve (as the $\mu(x)$ function) --></p>
 </div><div class="column" style="width:50%;">
+<p>With <span class="math inline">\(r=0.05\)</span></p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -533,7 +534,8 @@ P(t)=P(0)*e^{r(t-t_0)}
 <p>And we get the logistic model</p>
 <p><span class="math display">\[
 P(t)=\frac{a}{(1+e^{-r(t-t_0)})}
-\]</span> So assuming <span class="math inline">\(a=150\)</span></p>
+\]</span></p>
+<p>So assuming <span class="math inline">\(a=150\)</span> and <span class="math inline">\(r=0.05\)</span></p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="lightable-classic-2 table table-striped table-hover table-condensed caption-top" data-quarto-postprocess="true" style="font-family: Verdana; width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
@@ -1178,7 +1180,7 @@ P(t)=\frac{a}{(1+e^{-r(t-t_0)})}
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom","loop":false});
+    <script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","loop":false});
     window.onload = () => {
       lightboxQuarto.on('slide_before_load', (data) => {
         const { slideIndex, slideNode, slideConfig, player, trigger } = data;
